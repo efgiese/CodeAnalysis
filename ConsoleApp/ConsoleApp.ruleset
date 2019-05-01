@@ -12,7 +12,7 @@
   <Rules AnalyzerId="Microsoft.CodeQuality.Analyzers" RuleNamespace="Microsoft.CodeQuality.Analyzers">
     <Rule Id="CA1802" Action="Error" />
     <Rule Id="CA1814" Action="Info" />
-    <Rule Id="CA1823" Action="None" />
+    <Rule Id="CA1823" Action="Info" />
     <Rule Id="CA2217" Action="Warning" />
   </Rules>
 </RuleSet>
