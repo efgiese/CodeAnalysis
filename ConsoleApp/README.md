@@ -58,3 +58,5 @@ Sie wird ebenfalls in die `*.csproj` eingebunden
   <CodeAnalysisRuleSet>versandAPI.ruleset</CodeAnalysisRuleSet>
 </PropertyGroup>
 ```
+
+Warnungen können auch [dediziert unterdrückt](https://docs.microsoft.com/en-us/visualstudio/code-quality/in-source-suppression-overview?view=vs-2017) werden.
