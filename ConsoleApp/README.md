@@ -75,7 +75,7 @@ In FxCop sind auch [code metric rules](https://docs.microsoft.com/en-us/visualst
 </ItemGroup>
 ```
 
-Durch den Build-Prozess wird die Metric in Form einer XML-Datei erstellt.
+Durch den Build-Prozess wird die Metric in Form einer XML-Datei erstellt. Dies funktioniert allerdings nur unter Windows, weil die Metrics.exe zur Analyse nur unter Window ausgeführt werden kann.
 
 ```powershell
 PS C:\Projects\CSharp\CodeAnalysis\ConsoleApp> dotnet build /t:Metrics
