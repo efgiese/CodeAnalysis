@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeMetricsReport Version="1.0">
+  <Targets>
+    <Target Name="ConsoleApp.csproj">
+      <Assembly Name="ConsoleApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Metrics>
+          <Metric Name="MaintainabilityIndex" Value="85" />
+          <Metric Name="CyclomaticComplexity" Value="9" />
+          <Metric Name="ClassCoupling" Value="8" />
+          <Metric Name="DepthOfInheritance" Value="2" />
+          <Metric Name="LinesOfCode" Value="98" />
+        </Metrics>
+        <Namespaces>
+          <Namespace Name="ConsoleApp">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="76" />
+              <Metric Name="CyclomaticComplexity" Value="5" />
+              <Metric Name="ClassCoupling" Value="5" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="LinesOfCode" Value="87" />
+            </Metrics>
+            <Types>
+              <NamedType Name="Program">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="76" />
+                  <Metric Name="CyclomaticComplexity" Value="5" />
+                  <Metric Name="ClassCoupling" Value="5" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="LinesOfCode" Value="83" />
+                </Metrics>
+                <Members>
+                  <Method Name="void Program.Main(string[] args)" File="C:\Projects\CSharp\CodeAnalysis\ConsoleApp\Program.cs" Line="11">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="61" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="LinesOfCode" Value="36" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void Program.BadImplementation()" File="C:\Projects\CSharp\CodeAnalysis\ConsoleApp\Program.cs" Line="48">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="81" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="LinesOfCode" Value="14" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void Program.GoodImplementation()" File="C:\Projects\CSharp\CodeAnalysis\ConsoleApp\Program.cs" Line="60">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="LinesOfCode" Value="12" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void Program.BetterImplementation()" File="C:\Projects\CSharp\CodeAnalysis\ConsoleApp\Program.cs" Line="73">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="81" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="LinesOfCode" Value="13" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void Program.ExceptionMethod()" File="C:\Projects\CSharp\CodeAnalysis\ConsoleApp\Program.cs" Line="85">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="97" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="LinesOfCode" Value="5" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+          <Namespace Name="ConsoleApp.Extensions">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="95" />
+              <Metric Name="CyclomaticComplexity" Value="4" />
+              <Metric Name="ClassCoupling" Value="4" />
+              <Metric Name="DepthOfInheritance" Value="2" />
+              <Metric Name="LinesOfCode" Value="11" />
+            </Metrics>
+            <Types>
+              <NamedType Name="DemoException">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="95" />
+                  <Metric Name="CyclomaticComplexity" Value="4" />
+                  <Metric Name="ClassCoupling" Value="4" />
+                  <Metric Name="DepthOfInheritance" Value="2" />
+                  <Metric Name="LinesOfCode" Value="8" />
+                </Metrics>
+                <Members>
+                  <Method Name="DemoException.DemoException()" File="C:\Projects\CSharp\CodeAnalysis\ConsoleApp\Extensions\DemoExeption.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="LinesOfCode" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="DemoException.DemoException(string message)" File="C:\Projects\CSharp\CodeAnalysis\ConsoleApp\Extensions\DemoExeption.cs" Line="10">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="LinesOfCode" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="DemoException.DemoException(string message, Exception innerException)" File="C:\Projects\CSharp\CodeAnalysis\ConsoleApp\Extensions\DemoExeption.cs" Line="11">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="97" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="LinesOfCode" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="DemoException.DemoException(SerializationInfo info, StreamingContext context)" File="C:\Projects\CSharp\CodeAnalysis\ConsoleApp\Extensions\DemoExeption.cs" Line="12">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="97" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="LinesOfCode" Value="1" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+        </Namespaces>
+      </Assembly>
+    </Target>
+  </Targets>
+</CodeMetricsReport>

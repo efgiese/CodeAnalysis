@@ -40,6 +40,10 @@ Zur Konfiguration wird ein `rule set` benötigt. Dies ist eine XML-Datei `projec
     <Rule Id="CA1033" Action="Warning" />
   </Rules>
   <Rules AnalyzerId="Microsoft.CodeQuality.Analyzers" RuleNamespace="Microsoft.CodeQuality.Analyzers">
+    <Rule Id="CA1501" Action="Warning" /> <!-- Avoid excessive inheritance -->
+    <Rule Id="CA1502" Action="Warning" /> <!-- Avoid excessive complexity -->
+    <Rule Id="CA1505" Action="Warning" /> <!-- Avoid unmaintainable code -->
+    <Rule Id="CA1506" Action="Warning" /> <!-- Avoid excessive class coupling -->
     <Rule Id="CA1802" Action="Error" />
     <Rule Id="CA1814" Action="Info" />
     <Rule Id="CA1823" Action="None" />
@@ -60,3 +64,34 @@ Sie wird ebenfalls in die `*.csproj` eingebunden
 ```
 
 Warnungen können auch [dediziert unterdrückt](https://docs.microsoft.com/en-us/visualstudio/code-quality/in-source-suppression-overview?view=vs-2017) werden.
+
+### How to: Generate code metrics data
+
+In FxCop sind auch [code metric rules](https://docs.microsoft.com/en-us/visualstudio/code-quality/how-to-generate-code-metrics-data?view=vs-2019#command-line-code-metrics) enthalten. Im Standard sind sie jedoch deaktiviert. Sie können im Ruleset aktiviert werden. Die Warnschwellen werden in einer separaten Datei `CodeMetricsConfig.txt` konfiguriert. Diese Datei muss dann wieder eingebunden werden.
+
+```xml
+<ItemGroup>
+  <AdditionalFiles Include="CodeMetricsConfig.txt" />
+</ItemGroup>
+```
+
+Durch den Build-Prozess wird die Metric in Form einer XML-Datei erstellt.
+
+```powershell
+PS C:\Projects\CSharp\CodeAnalysis\ConsoleApp> dotnet build /t:Metrics
+Microsoft (R)-Build-Engine, Version 16.0.450+ga8dc7f1d34 für .NET Core
+Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+
+  Wiederherstellung in "83,35 ms" für "C:\Projects\CSharp\CodeAnalysis\ConsoleApp\ConsoleApp.csproj" abgeschlossen.
+  ConsoleApp -> C:\Projects\CSharp\CodeAnalysis\ConsoleApp\bin\Debug\netcoreapp2.2\ConsoleApp.dll
+  Loading ConsoleApp.csproj...
+  Computing code metrics for ConsoleApp.csproj...
+  Writing output to 'ConsoleApp.Metrics.xml'...
+  Completed Successfully.
+
+Der Buildvorgang wurde erfolgreich ausgeführt.
+    0 Warnung(en)
+    0 Fehler
+
+Verstrichene Zeit 00:00:19.88
+```

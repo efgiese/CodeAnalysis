@@ -10,6 +10,10 @@
     <Rule Id="CA1033" Action="Warning" />
   </Rules>
   <Rules AnalyzerId="Microsoft.CodeQuality.Analyzers" RuleNamespace="Microsoft.CodeQuality.Analyzers">
+    <Rule Id="CA1501" Action="Warning" /> <!-- Avoid excessive inheritance -->
+    <Rule Id="CA1502" Action="Warning" /> <!-- Avoid excessive complexity -->
+    <Rule Id="CA1505" Action="Warning" /> <!-- Avoid unmaintainable code -->
+    <Rule Id="CA1506" Action="Warning" /> <!-- Avoid excessive class coupling -->
     <Rule Id="CA1802" Action="Error" />
     <Rule Id="CA1814" Action="Info" />
     <Rule Id="CA1823" Action="Info" />
