@@ -28,26 +28,26 @@ Zur Konfiguration wird ein `rule set` benötigt. Dies ist eine XML-Datei `projec
 [Rule set format](https://docs.microsoft.com/en-us/visualstudio/code-quality/using-rule-sets-to-group-code-analysis-rules?view=vs-2017)
 
 ```xml
-<RuleSet Name="Rules for Hello World project" Description="These rules focus on critical issues for the Hello World app." ToolsVersion="10.0">
-  <Localization ResourceAssembly="Microsoft.VisualStudio.CodeAnalysis.RuleSets.Strings.dll" ResourceBaseName="Microsoft.VisualStudio.CodeAnalysis.RuleSets.Strings.Localized">
-    <Name Resource="HelloWorldRules_Name" />
-    <Description Resource="HelloWorldRules_Description" />
-  </Localization>
-  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
-    <Rule Id="CA1001" Action="Warning" />
-    <Rule Id="CA1009" Action="Warning" />
-    <Rule Id="CA1016" Action="Warning" />
-    <Rule Id="CA1033" Action="Warning" />
+<?xml version="1.0"?>
+<RuleSet Name="All Rules with default action" Description="All Rules with default action. Rules with IsEnabledByDefault = false are disabled." ToolsVersion="15.0">
+   <Rules AnalyzerId="Microsoft.CodeAnalysis.VersionCheckAnalyzer" RuleNamespace="Microsoft.CodeAnalysis.VersionCheckAnalyzer">
+      <Rule Id="CA9999" Action="Warning" />          <!-- Analyzer version mismatch -->
+   </Rules>
+   <Rules AnalyzerId="Microsoft.CodeQuality.Analyzers" RuleNamespace="Microsoft.CodeQuality.Analyzers">
+      <Rule Id="CA1000" Action="Warning" />          <!-- Do not declare static members on generic types -->
+      <Rule Id="CA1008" Action="None" />             <!-- Enums should have zero value -->
+      <Rule Id="CA1010" Action="Warning" />          <!-- Collections should implement generic interface -->
+      <Rule Id="CA1012" Action="None" />             <!-- Abstract types should not have constructors -->
+      <Rule Id="CA1501" Action="Warning" />             <!-- Avoid excessive inheritance -->
+      <Rule Id="CA1502" Action="Warning" />             <!-- Avoid excessive complexity -->
+      <Rule Id="CA1505" Action="Warning" />             <!-- Avoid unmaintainable code -->
+      <Rule Id="CA1506" Action="Warning" />             <!-- Avoid excessive class coupling -->
   </Rules>
-  <Rules AnalyzerId="Microsoft.CodeQuality.Analyzers" RuleNamespace="Microsoft.CodeQuality.Analyzers">
-    <Rule Id="CA1501" Action="Warning" /> <!-- Avoid excessive inheritance -->
-    <Rule Id="CA1502" Action="Warning" /> <!-- Avoid excessive complexity -->
-    <Rule Id="CA1505" Action="Warning" /> <!-- Avoid unmaintainable code -->
-    <Rule Id="CA1506" Action="Warning" /> <!-- Avoid excessive class coupling -->
-    <Rule Id="CA1802" Action="Error" />
-    <Rule Id="CA1814" Action="Info" />
-    <Rule Id="CA1823" Action="None" />
-    <Rule Id="CA2217" Action="Warning" />
+   <Rules AnalyzerId="Microsoft.NetCore.Analyzers" RuleNamespace="Microsoft.NetCore.Analyzers">
+      <Rule Id="CA1303" Action="None" />             <!-- Do not pass literals as localized parameters -->
+      <Rule Id="CA1304" Action="Warning" />          <!-- Specify CultureInfo -->
+      <Rule Id="CA1305" Action="Warning" />          <!-- Specify IFormatProvider -->
+      <Rule Id="CA1307" Action="Warning" />          <!-- Specify StringComparison -->
   </Rules>
 </RuleSet>
 ```
@@ -67,10 +67,11 @@ Warnungen können auch [dediziert unterdrückt](https://docs.microsoft.com/en-us
 
 ### How to: Generate code metrics data
 
-In FxCop sind auch [code metric rules](https://docs.microsoft.com/en-us/visualstudio/code-quality/how-to-generate-code-metrics-data?view=vs-2019#command-line-code-metrics) enthalten. Im Standard sind sie jedoch deaktiviert. Sie können im Ruleset aktiviert werden. Die Warnschwellen werden in einer separaten Datei `CodeMetricsConfig.txt` konfiguriert. Diese Datei muss dann wieder eingebunden werden.
+In FxCop sind auch [code metric rules](https://docs.microsoft.com/en-us/visualstudio/code-quality/how-to-generate-code-metrics-data?view=vs-2019#command-line-code-metrics) enthalten. Im Standard sind sie jedoch deaktiviert. Sie können im Ruleset aktiviert werden. Die Warnschwellen werden in einer separaten Datei `CodeMetricsConfig.txt` konfiguriert. Diese Datei muss dann wieder eingebunden werden. Zusätzlich muss das Modul `Microsoft.CodeAnalysis.Metrics` installiert sein.
 
 ```xml
 <ItemGroup>
+  <PackageReference Include="Microsoft.CodeAnalysis.Metrics" Version="2.9.2" />
   <AdditionalFiles Include="CodeMetricsConfig.txt" />
 </ItemGroup>
 ```
