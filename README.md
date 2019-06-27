@@ -4,7 +4,7 @@ Project to show code analysis with FxCopAnalyzers and Metrics.
 
 ## ConsoleApp.Test
 
-Project for testiing.
+Project for testing.
 
 ## ConsoleApp
 
