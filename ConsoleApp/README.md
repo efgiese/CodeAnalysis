@@ -96,3 +96,45 @@ Der Buildvorgang wurde erfolgreich ausgeführt.
 
 Verstrichene Zeit 00:00:19.88
 ```
+
+Dies funktioniert seit .NET Core 3 nicht mehr. Die `ConsoleApp.Metrics.xml` ist bis auf den Rumpf leer.
+
+```powershell
+PS C:\Projects\CSharp\CodeAnalysis\ConsoleApp> dotnet build -t:Metrics
+Microsoft (R)-Build-Engine, Version 16.6.0+5ff7b0c9e für .NET Core
+Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+
+  Wiederherzustellende Projekte werden ermittelt...
+  Alle Projekte sind für die Wiederherstellung auf dem neuesten Stand.
+  Loading ConsoleApp.csproj...
+  Computing code metrics for ConsoleApp.csproj...
+  Writing output to 'ConsoleApp.Metrics.xml'...
+  Completed Successfully.
+
+Der Buildvorgang wurde erfolgreich ausgeführt.
+    0 Warnung(en)
+    0 Fehler
+
+Verstrichene Zeit 00:00:03.71
+```
+
+Mit der `Developer PowerShell Visual Studio Community 2019.xxx` wird die `ConsoleApp.Metrics.xml` korrekt erzeugt.
+
+```powershell
+PS C:\Projects\CSharp\CodeAnalysis\ConsoleApp> dotnet build -t:Metrics
+Microsoft (R)-Build-Engine, Version 16.6.0+5ff7b0c9e für .NET Core
+Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+
+  Wiederherzustellende Projekte werden ermittelt...
+  Alle Projekte sind für die Wiederherstellung auf dem neuesten Stand.
+  Loading ConsoleApp.csproj...
+  Computing code metrics for ConsoleApp.csproj...
+  Writing output to 'ConsoleApp.Metrics.xml'...
+  Completed Successfully.
+
+Der Buildvorgang wurde erfolgreich ausgeführt.
+    0 Warnung(en)
+    0 Fehler
+
+Verstrichene Zeit 00:00:07.94
+```
